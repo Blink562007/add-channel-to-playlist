@@ -11,7 +11,7 @@ export interface Video {
 export interface Playlist {
     id: string;
     title: string;
-    videoCount: number;
+    videoCount?: number;
 }
 
 export type Message =
