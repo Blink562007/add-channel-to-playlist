@@ -3,9 +3,6 @@ export type Mode = 'latest' | 'oldest' | 'popular';
 export interface Video {
     id: string;
     title: string;
-    channelId: string;
-    durationSec?: number;
-    viewCount?: number;
 }
 
 export interface Playlist {

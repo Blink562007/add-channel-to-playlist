@@ -1,0 +1,211 @@
+{
+  "chipViewModel": {
+    "text": "Latest",
+    "displayType": "CHIP_VIEW_MODEL_DISPLAY_TYPE_DROP_DOWN",
+    "tapCommand": {
+      "innertubeCommand": {
+        "clickTrackingParams": "CDgQ4b4OGB8iEwjSk_Sno8-UAxXmmtgFHZRPCUzKAQTqbrzh",
+        "showSheetCommand": {
+          "panelLoadingStrategy": {
+            "inlineContent": {
+              "sheetViewModel": {
+                "content": {
+                  "listViewModel": {
+                    "listItems": [
+                      {
+                        "listItemViewModel": {
+                          "title": {
+                            "content": "Latest"
+                          },
+                          "isSelected": true,
+                          "entityKey": ":Latest",
+                          "rendererContext": {
+                            "commandContext": {
+                              "onTap": {
+                                "innertubeCommand": {
+                                  "clickTrackingParams": "CDgQ4b4OGB8iEwjSk_Sno8-UAxXmmtgFHZRPCUzKAQTqbrzh",
+                                  "commandExecutorCommand": {
+                                    "commands": [
+                                      {
+                                        "clickTrackingParams": "CDgQ4b4OGB8iEwjSk_Sno8-UAxXmmtgFHZRPCUzKAQTqbrzh",
+                                        "entityUpdateCommand": {
+                                          "entityBatchUpdate": {
+                                            "mutations": [
+                                              {
+                                                "entityKey": "EgAg8gMoAQ%3D%3D",
+                                                "type": "ENTITY_MUTATION_TYPE_REPLACE",
+                                                "payload": {
+                                                  "chipEntity": {
+                                                    "key": "EgAg8gMoAQ%3D%3D",
+                                                    "text": "Latest"
+                                                  }
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "clickTrackingParams": "CDgQ4b4OGB8iEwjSk_Sno8-UAxXmmtgFHZRPCUzKAQTqbrzh",
+                                        "commandMetadata": {
+                                          "webCommandMetadata": {
+                                            "sendPost": true,
+                                            "apiUrl": "/youtubei/v1/browse"
+                                          }
+                                        },
+                                        "continuationCommand": {
+                                          "token": "4qmFsgJkEhhVQzYyb0s0Z1RRdE9FNER2QUZiRmx0OVEaSDhnWXVHaXg2S2tJb0NpUTNNRE0zTlRSbE5pMHdNREF3TFRKbU9UUXRPVEJpWXkweE5ESXlNMkppTlRjMk5HRVlCQSUzRCUzRA%3D%3D",
+                                          "request": "CONTINUATION_REQUEST_TYPE_BROWSE",
+                                          "command": {
+                                            "clickTrackingParams": "CDgQ4b4OGB8iEwjSk_Sno8-UAxXmmtgFHZRPCUzKAQTqbrzh",
+                                            "showReloadUiCommand": {
+                                              "targetId": "703754e6-0000-2f94-90bc-14223bb5764a"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "listItemViewModel": {
+                          "title": {
+                            "content": "Popular"
+                          },
+                          "entityKey": ":Popular",
+                          "rendererContext": {
+                            "commandContext": {
+                              "onTap": {
+                                "innertubeCommand": {
+                                  "clickTrackingParams": "CDgQ4b4OGB8iEwjSk_Sno8-UAxXmmtgFHZRPCUzKAQTqbrzh",
+                                  "commandExecutorCommand": {
+                                    "commands": [
+                                      {
+                                        "clickTrackingParams": "CDgQ4b4OGB8iEwjSk_Sno8-UAxXmmtgFHZRPCUzKAQTqbrzh",
+                                        "entityUpdateCommand": {
+                                          "entityBatchUpdate": {
+                                            "mutations": [
+                                              {
+                                                "entityKey": "EgAg8gMoAQ%3D%3D",
+                                                "type": "ENTITY_MUTATION_TYPE_REPLACE",
+                                                "payload": {
+                                                  "chipEntity": {
+                                                    "key": "EgAg8gMoAQ%3D%3D",
+                                                    "text": "Popular"
+                                                  }
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "clickTrackingParams": "CDgQ4b4OGB8iEwjSk_Sno8-UAxXmmtgFHZRPCUzKAQTqbrzh",
+                                        "commandMetadata": {
+                                          "webCommandMetadata": {
+                                            "sendPost": true,
+                                            "apiUrl": "/youtubei/v1/browse"
+                                          }
+                                        },
+                                        "continuationCommand": {
+                                          "token": "4qmFsgJkEhhVQzYyb0s0Z1RRdE9FNER2QUZiRmx0OVEaSDhnWXVHaXg2S2tJb0NpUTNNRE0zTlRSbE5pMHdNREF3TFRKbU9UUXRPVEJpWXkweE5ESXlNMkppTlRjMk5HRVlBZyUzRCUzRA%3D%3D",
+                                          "request": "CONTINUATION_REQUEST_TYPE_BROWSE",
+                                          "command": {
+                                            "clickTrackingParams": "CDgQ4b4OGB8iEwjSk_Sno8-UAxXmmtgFHZRPCUzKAQTqbrzh",
+                                            "showReloadUiCommand": {
+                                              "targetId": "703754e6-0000-2f94-90bc-14223bb5764a"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "listItemViewModel": {
+                          "title": {
+                            "content": "Oldest"
+                          },
+                          "entityKey": ":Oldest",
+                          "rendererContext": {
+                            "commandContext": {
+                              "onTap": {
+                                "innertubeCommand": {
+                                  "clickTrackingParams": "CDgQ4b4OGB8iEwjSk_Sno8-UAxXmmtgFHZRPCUzKAQTqbrzh",
+                                  "commandExecutorCommand": {
+                                    "commands": [
+                                      {
+                                        "clickTrackingParams": "CDgQ4b4OGB8iEwjSk_Sno8-UAxXmmtgFHZRPCUzKAQTqbrzh",
+                                        "entityUpdateCommand": {
+                                          "entityBatchUpdate": {
+                                            "mutations": [
+                                              {
+                                                "entityKey": "EgAg8gMoAQ%3D%3D",
+                                                "type": "ENTITY_MUTATION_TYPE_REPLACE",
+                                                "payload": {
+                                                  "chipEntity": {
+                                                    "key": "EgAg8gMoAQ%3D%3D",
+                                                    "text": "Oldest"
+                                                  }
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "clickTrackingParams": "CDgQ4b4OGB8iEwjSk_Sno8-UAxXmmtgFHZRPCUzKAQTqbrzh",
+                                        "commandMetadata": {
+                                          "webCommandMetadata": {
+                                            "sendPost": true,
+                                            "apiUrl": "/youtubei/v1/browse"
+                                          }
+                                        },
+                                        "continuationCommand": {
+                                          "token": "4qmFsgJkEhhVQzYyb0s0Z1RRdE9FNER2QUZiRmx0OVEaSDhnWXVHaXg2S2tJb0NpUTNNRE0zTlRSbE5pMHdNREF3TFRKbU9UUXRPVEJpWXkweE5ESXlNMkppTlRjMk5HRVlCUSUzRCUzRA%3D%3D",
+                                          "request": "CONTINUATION_REQUEST_TYPE_BROWSE",
+                                          "command": {
+                                            "clickTrackingParams": "CDgQ4b4OGB8iEwjSk_Sno8-UAxXmmtgFHZRPCUzKAQTqbrzh",
+                                            "showReloadUiCommand": {
+                                              "targetId": "703754e6-0000-2f94-90bc-14223bb5764a"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "accessibilityLabel": "Latest",
+    "chipEntityKey": "EgAg8gMoAQ%3D%3D",
+    "loggingDirectives": {
+      "trackingParams": "CDgQ4b4OGB8iEwjSk_Sno8-UAxXmmtgFHZRPCUw=",
+      "visibility": {
+        "types": "12"
+      }
+    }
+  }
+}

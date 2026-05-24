@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { videosToAdd } from '../src/lib/youtube/dedupe';
 import type { Video } from '../src/lib/types';
 
-const v = (id: string): Video => ({ id, title: id, channelId: 'C' });
+const v = (id: string): Video => ({ id, title: id});
 
 describe('videosToAdd', () => { 
     it('returns all when nothing exists in playlist', () => {
