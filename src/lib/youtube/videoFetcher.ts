@@ -93,5 +93,9 @@ export async function fetchChannelVideos(
         resp = await innertubeFetch<any>('browse', { continuation: nextCont });
     }
 
+    if (mode === 'popular' || mode === 'oldest') {
+        result.reverse();
+    }
+
     return result;
 }
