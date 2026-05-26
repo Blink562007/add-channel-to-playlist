@@ -1,16 +1,22 @@
 import { innertubeFetch } from "./innertube";
 import type { Video } from "../types";
+import { listPlaylistVideoIds } from "./playlists";
+import { videosToAdd } from "./dedupe";
 
 const BATCH = 10;
 
 export async function addVideosToPlaylist(
     playlistId: string,
     videos: Video[],
-): Promise<{ added: number; failed: number }> {
+): Promise<{ added: number; skipped: number; failed: number }> {
+
+    const existingIds = await listPlaylistVideoIds(playlistId);
+    const toAdd = videosToAdd(videos, existingIds);
+    const skipped = videos.length - toAdd.length;
 
     let added = 0, failed = 0;
-    for (let i = 0; i < videos.length; i += BATCH) {
-        const chunk = videos.slice(i, i + BATCH);
+    for (let i = 0; i < toAdd.length; i += BATCH) {
+        const chunk = toAdd.slice(i, i + BATCH);
         const actions = chunk.map(video => ({action: 'ACTION_ADD_VIDEO', addedVideoId: video.id}));
         const resp = await innertubeFetch<any>('browse/edit_playlist', {playlistId, actions});
 
@@ -22,5 +28,5 @@ export async function addVideosToPlaylist(
         failed += chunk.length - addedInBatch;
         
     }
-    return {added: added, failed: failed};
+    return {added: added, skipped: skipped, failed: failed};
 }
