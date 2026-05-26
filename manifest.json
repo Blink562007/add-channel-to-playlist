@@ -13,6 +13,12 @@
       "js": ["src/content/content.ts"],
       "run_at": "document_idle",
       "world": "MAIN"
+    },
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["src/content/bridge.ts"],
+      "run_at": "document_idle",
+      "world": "ISOLATED"
     }
   ],
     "host_permissions": ["https://www.youtube.com/*"]
