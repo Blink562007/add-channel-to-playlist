@@ -1,42 +1,22 @@
-interface YtInitialData {
-    metadata?: { channelMetadataRenderer?: { externalId?: string; title?: string } };
-    header?: { c4TabbedHeaderRenderer?: { channelId?: string; title?: string } };
-}
+import { innertubeFetch } from './innertube';
 
-export function readCurrentChannel(): { id: string; name: string } | null {
-    const channelLink = document.querySelector('ytd-channel-name a[href*="/channel/"]') as HTMLAnchorElement | null;
-    if (channelLink) {
-        const match = channelLink.href.match(/\/channel\/(UC[^/?#]+)/);
-        const id = match?.[1];
-        const name = channelLink.textContent?.trim();
-        if (id && name) return { id, name };
-    } 
-    const data = (window as unknown as { ytInitialData?: YtInitialData }).ytInitialData;
-    const meta = data?.metadata?.channelMetadataRenderer;
+export async function readCurrentChannel(): Promise<{ id: string; name: string } | null> {
+    const path = location.pathname;
+    const name = document.title.replace(/ - YouTube$/, '').trim();
 
-    if (meta?.externalId && meta.title) {
-        return {id: meta.externalId, name: meta.title};
+    // /channel/UC… — id is right there in the live URL
+    const direct = path.match(/^\/channel\/(UC[^/?#]+)/);
+    if (direct) return { id: direct[1], name };
+
+    // /@handle, /c/…, /user/… — the id isn't in the URL, and canonical lags on
+    // SPA nav, so ask YouTube to resolve the live URL to a channel id.
+    if (path.startsWith('/@') || path.startsWith('/c/') || path.startsWith('/user/')) {
+        const res = await innertubeFetch<{
+            endpoint?: { browseEndpoint?: { browseId?: string } };
+        }>('navigation/resolve_url', { url: location.href });
+        const id = res.endpoint?.browseEndpoint?.browseId;
+        if (id?.startsWith('UC')) return { id, name };
     }
 
-    const header = data?.header?.c4TabbedHeaderRenderer;
-    if (header?.channelId && header?.title) {
-        return {id: header.channelId, name: header.title};
-    }
-
-    const player = (window as unknown as {
-        ytInitialPlayerResponse?: { videoDetails?: { channelId?: string; author?: string } };
-    }).ytInitialPlayerResponse;
-
-    if (player?.videoDetails?.channelId && player?.videoDetails?.author) {
-        return { id: player.videoDetails.channelId, name: player.videoDetails.author };
-    }
-
-    const metaTag = document.querySelector('meta[itemprop="channelId"]') as HTMLMetaElement | null;
-    const titleTag = document.querySelector('link[itemprop="name"]') as HTMLLinkElement | null;
-
-    if (metaTag?.content) {
-        return { id: metaTag.content, name: titleTag?.getAttribute("title") ?? 'Unknown channel' };
-    }
-
-    return null;
+    return null;   // not a channel page (watch, home, search, …)
 }
