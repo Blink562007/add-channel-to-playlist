@@ -34,8 +34,8 @@ The button is disabled on non-channel pages (video, home, search, etc.) — open
 Requires Node 20+.
 
 ```bash
-git clone https://github.com/Blink562007/playlist_editor_extension.git
-cd playlist_editor_extension
+git clone https://github.com/Blink562007/add-channel-to-playlist.git
+cd add-channel-to-playlist
 npm install
 npm run build         # outputs dist/
 ```
