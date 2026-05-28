@@ -12,19 +12,18 @@ const MODES: Mode[] = ['latest', 'oldest', 'popular'];
 
 export default function ModePicker({ value, onChange }: ModePickerProps) {
     return (
-        <fieldset style={{ border: 'none', padding: 0, margin: 0 }}>
-            <legend>Sort</legend>
+        <div className="mode-picker">
             {MODES.map((mode) => (
-                <label key={mode} style={{ display: 'block' }}>
+                <label key={mode}>
                     <input
                         type="radio"
                         name="mode"
                         checked={value === mode}
                         onChange={() => onChange(mode)}
                     />
-                    {mode}
+                    <span>{mode}</span>
                 </label>
             ))}
-        </fieldset>
+        </div>
     );
 }

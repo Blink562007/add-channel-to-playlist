@@ -44,7 +44,11 @@ export default function App() {
     };
 
     const handleAdd = async () => {
-        if (!channelId || !count || !playlistId) return;
+        if (!channelId || !playlistId) return;
+        if (count < 1 || count > 1000) {
+            setStatus('Please enter a number between 1 and 1000.');
+            return;
+        }
         setStatus('Adding...');
         const res = await sendToContent({type: 'ADD_VIDEOS', channelId, mode, count, playlistId})
         if (res.type === 'ADD_DONE') {
@@ -56,22 +60,30 @@ export default function App() {
 
 
     return (
-        <div style={{ fontFamily: 'sans-serif', padding: 20, maxWidth: 400 }}>
-            <h1>YouTube Bulk Playlist Editor</h1>
+        <div className="app">
             <Summary channelName={channelName} />
-            <ModePicker value={mode} onChange = {setMode} />
-            <CountInput value={count} onChange = {setCount} />
-            <PlaylistPicker 
-                playlists = {playlists}
-                value = {playlistId}
-                onChange = {setPlaylistId}
-                onCreate = {handleCreate}
-            />
-            <AddButton 
-                disabled = {!channelId || !playlistId || count < 1 || count > 1000}
+
+            <section className="card">
+                <h2>What to add</h2>
+                <ModePicker value={mode} onChange={setMode} />
+                <CountInput value={count} onChange={setCount} />
+            </section>
+
+            <section className="card">
+                <h2>Destination</h2>
+                <PlaylistPicker
+                    playlists={playlists}
+                    value={playlistId}
+                    onChange={setPlaylistId}
+                    onCreate={handleCreate}
+                />
+            </section>
+
+            <AddButton
+                disabled={!channelId || !playlistId}
                 onClick={handleAdd}
             />
-            {status && <p>{status}</p>}
+            {status && <p className="status">{status}</p>}
         </div>
     )
 }

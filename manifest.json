@@ -1,11 +1,11 @@
 {
     "manifest_version": 3,
-    "name": "Bulk Playlist Adder",
+    "name": "Add channel to playlist",
     "version": "0.1.0",
     "description": "Add N latest/oldest/popular videos from a YouTube channel to one of your playlists.",
     "action": {
         "default_popup": "src/popup/index.html",
-        "default_title": "Bulk Playlist Adder"
+        "default_title": "Add channel to playlist"
     },
     "content_scripts": [
     {

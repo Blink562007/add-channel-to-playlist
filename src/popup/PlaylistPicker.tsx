@@ -12,31 +12,31 @@ export default function PlaylistPicker({ playlists, value, onChange, onCreate }:
     const [newTitle, setNewTitle] = useState('');
     
     return (
-        <div>
-            <select value={value} onChange={(e) =>onChange(e.target.value)}>
+        <div className="playlist-picker">
+            <select value={value} onChange={(e) => onChange(e.target.value)}>
                 <option value="" disabled>Select a playlist</option>
                 {playlists.map((pl) => (
                     <option key={pl.id} value={pl.id}>{pl.title}</option>
                 ))}
-
             </select>
 
-            <div>
-                <input 
+            <div className="or-divider"><span>or</span></div>
+
+            <div className="create-new">
+                <input
                     type="text"
                     placeholder="New playlist name"
                     value={newTitle}
                     onChange={(e) => setNewTitle(e.target.value)}
-                /> 
+                />
                 <button
-                    disabled ={!newTitle.trim()}
+                    disabled={!newTitle.trim()}
                     onClick={() => { onCreate(newTitle); setNewTitle(''); }}
                 >
-                    Create Playlist
+                    Create
                 </button>
             </div>
         </div>
-
     );
 
 }
