@@ -2,7 +2,7 @@
 
 A Chrome extension that adds N latest / oldest / popular videos from a YouTube channel to one of your playlists in one click.
 
-![Popup screenshot — add a screenshot of the popup here](docs/screenshot.png)
+<img src="docs/screenshot.png" alt="Popup screenshot" width="320" />
 
 ## Install
 
