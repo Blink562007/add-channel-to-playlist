@@ -17,6 +17,7 @@ export default function App() {
     const [channelId, setChannelId] = useState<string | null>(null);
     const [playlists, setPlaylists] = useState<Playlist[]>([]);
     const [status, setStatus] = useState<string>('');
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         (async () => {
@@ -49,8 +50,10 @@ export default function App() {
             setStatus('Please enter a number between 1 and 1000.');
             return;
         }
-        setStatus('Adding...');
+        setStatus('Adding');
+        setLoading(true);
         const res = await sendToContent({type: 'ADD_VIDEOS', channelId, mode, count, playlistId})
+        setLoading(false);
         if (res.type === 'ADD_DONE') {
             setStatus(`Added ${res.added}`);
         } else if (res.type === 'ERROR') {
@@ -83,7 +86,7 @@ export default function App() {
                 disabled={!channelId || !playlistId}
                 onClick={handleAdd}
             />
-            {status && <p className="status">{status}</p>}
+            {status && <p className={`status${loading ? ' loading' : ''}`}>{status}</p>}
         </div>
     )
 }
