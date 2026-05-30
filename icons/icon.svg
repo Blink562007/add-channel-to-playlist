@@ -1,0 +1,17 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- red square background -->
+  <rect x="0" y="0" width="512" height="512" fill="#cc0000"/>
+
+  <!-- playlist lines -->
+  <rect x="96" y="140" width="320" height="40" rx="20" fill="#ffffff"/>
+  <rect x="96" y="236" width="320" height="40" rx="20" fill="#ffffff"/>
+  <rect x="96" y="332" width="320" height="40" rx="20" fill="#ffffff"/>
+
+  <!-- red halo: cuts a gap so the badge reads separately from the lines -->
+  <circle cx="404" cy="404" r="104" fill="#cc0000"/>
+
+  <!-- white "+" badge -->
+  <circle cx="404" cy="404" r="82" fill="#ffffff"/>
+  <rect x="360" y="393" width="88" height="22" rx="11" fill="#cc0000"/>
+  <rect x="393" y="360" width="22" height="88" rx="11" fill="#cc0000"/>
+</svg>
