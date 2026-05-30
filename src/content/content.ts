@@ -1,23 +1,10 @@
 import type { Message } from '../lib/types';
-import { innertubeFetch } from '../lib/youtube/innertube';
 import { readCurrentChannel } from '../lib/youtube/channel';
-import { listMyPlaylists, listPlaylistVideoIds, createPlaylist } from '../lib/youtube/playlists';
+import { listMyPlaylists, createPlaylist } from '../lib/youtube/playlists';
 import { fetchChannelVideos } from '../lib/youtube/videoFetcher';
 import { addVideosToPlaylist } from '../lib/youtube/videoAdder';
 
-console.log('[bulk-playlist] MAIN worker loaded');
-
 const ORIGIN_SELF = window.location.origin;
-
-(window as unknown as { bulkPlaylistDebug: unknown }).bulkPlaylistDebug = {
-    innertubeFetch,
-    readCurrentChannel,
-    listMyPlaylists,
-    listPlaylistVideoIds,
-    createPlaylist,
-    fetchChannelVideos,
-    addVideosToPlaylist,
-};
 
 // Runs the actual request and returns the response message.
 async function handle(msg: Message): Promise<Message> {

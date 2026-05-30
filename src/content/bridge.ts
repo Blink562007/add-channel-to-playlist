@@ -4,8 +4,6 @@ import type { Message } from '../lib/types';
 // so the popup talks to this script, and this script relays to the MAIN
 // worker via window.postMessage — and relays the reply back.
 
-console.log('[bulk-playlist] bridge loaded');
-
 const ORIGIN_SELF = window.location.origin;
 
 // Each in-flight request gets a unique id so we can match the async reply
